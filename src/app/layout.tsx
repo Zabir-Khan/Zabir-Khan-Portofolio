@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { SITE } from "@/data/site";
 import StructuredData from "@/components/StructuredData";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // inside the <body>, alongside {children}
 const inter = Inter({
