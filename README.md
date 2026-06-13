@@ -47,6 +47,23 @@ src/
     └── useActiveSection.ts
 ```
 
+## SEO & Metadata
+
+The following are generated automatically via Next.js metadata file
+conventions — no manual `<head>` tags needed:
+
+- `src/app/favicon.ico` + `src/app/apple-icon.png` — browser/iOS icons
+- `public/icon-192.png`, `public/icon-512.png` — referenced by `manifest.ts` (PWA icons)
+- `src/app/opengraph-image.tsx` / `twitter-image.tsx` — dynamically rendered share-preview images (1200×630)
+- `src/app/sitemap.ts` → `/sitemap.xml`
+- `src/app/robots.ts` → `/robots.txt`
+- `src/app/manifest.ts` → `/manifest.webmanifest`
+- `src/components/StructuredData.tsx` — JSON-LD (`ProfessionalService` + `Person`) injected in the root layout
+
+**Before deploying**, update `SITE.url` in `src/data/site.ts` — it feeds
+`metadataBase`, Open Graph URLs, the sitemap, and JSON-LD `sameAs`/`url`
+fields.
+
 ## Replacing Placeholder Photography
 
 All images are currently rendered via `PhotoScene`, a set of hand-built
