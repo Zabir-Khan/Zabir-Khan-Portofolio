@@ -9,7 +9,7 @@ export const SITE = {
   email: "hellozabirkhan@gmail.com",
   phone: "+91 98765 43210",
   location: "India — Available Worldwide",
-  url: "https://zabirkhan.example.com", // update with real domain before deploy
+  url: "https://zabir-khan.vercel.app", // update with real domain before deploy
 };
 
 export const NAV_LINKS = [
