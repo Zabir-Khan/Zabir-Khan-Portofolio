@@ -3,7 +3,9 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/data/site";
 import StructuredData from "@/components/StructuredData";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
+// inside the <body>, alongside {children}
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -63,6 +65,7 @@ export default function RootLayout({
       <body className="font-body">
         <StructuredData />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
