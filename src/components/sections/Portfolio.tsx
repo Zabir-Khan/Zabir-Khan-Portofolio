@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import RevealSection from "@/components/ui/RevealSection";
-import PhotoScene from "@/components/ui/PhotoScene";
+import PortfolioPhoto from "@/components/ui/PortfolioPhoto";
 import Lightbox from "@/components/sections/Lightbox";
 import {
   PORTFOLIO_CATEGORIES,
@@ -62,10 +62,11 @@ export default function Portfolio() {
                 if (e.key === "Enter" || e.key === " ") setLightboxItem(item);
               }}
             >
-              <PhotoScene
+              <PortfolioPhoto
+                src={item.image}
                 seed={item.seed}
                 alt={`${item.title} - ${item.category} photography by Zabir Khan`}
-                className="block h-full w-full"
+                className="h-full w-full"
               />
               <div className="overlay">
                 <div>

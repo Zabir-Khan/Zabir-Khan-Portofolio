@@ -64,22 +64,30 @@ conventions — no manual `<head>` tags needed:
 `metadataBase`, Open Graph URLs, the sitemap, and JSON-LD `sameAs`/`url`
 fields.
 
-## Replacing Placeholder Photography
+## Photography
 
-All images are currently rendered via `PhotoScene`, a set of hand-built
-inline SVG "photographs" with zero network dependency. To use real photos:
+All portfolio images, the achievements visual, and the lightbox now load
+real photos from **Unsplash** (`images.unsplash.com`) via `next/image` —
+free for commercial use, no attribution required
+([Unsplash License](https://unsplash.com/license)). `next.config.js` allow-lists
+`images.unsplash.com` under `images.remotePatterns`.
 
-1. Add image files to `public/images/` (or a remote host configured in
-   `next.config.js` under `images.remotePatterns`).
-2. Replace `<PhotoScene seed={n} alt="..." className="..." />` usages with
-   `next/image`, e.g.:
+Each portfolio item in `src/data/portfolio.ts` has an `image` URL. If an
+image ever fails to load, `PortfolioPhoto` automatically falls back to the
+original inline-SVG `PhotoScene` for that item — so the layout never breaks
+even without network access.
 
-   ```tsx
-   <Image src="/images/portrait-01.jpg" alt="..." fill className="object-cover" />
-   ```
+### Replacing with Zabir's own photography
 
-3. Update `src/data/portfolio.ts` to reference real image paths instead of
-   numeric seeds.
+1. Host the real images (e.g. in `public/images/`, or a remote host such as
+   Cloudinary/S3 — add that hostname to `next.config.js` if remote).
+2. In `src/data/portfolio.ts`, change each item's `image` field to the new
+   path/URL (e.g. `"/images/portrait-01.jpg"`).
+3. Do the same for the Achievements visual in
+   `src/components/sections/Achievements.tsx`.
+
+No other code changes are needed — `PortfolioPhoto` and `next/image` handle
+the rest.
 
 ## Editing Content
 

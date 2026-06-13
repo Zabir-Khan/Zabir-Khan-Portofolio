@@ -1,5 +1,5 @@
 import RevealSection from "@/components/ui/RevealSection";
-import PhotoScene from "@/components/ui/PhotoScene";
+import PortfolioPhoto from "@/components/ui/PortfolioPhoto";
 import { ACHIEVEMENT_HIGHLIGHTS } from "@/data/content";
 import { ICONS } from "@/components/ui/icons";
 
@@ -46,10 +46,12 @@ export default function Achievements() {
 
         {/* Visual block */}
         <div className="relative order-first lg:order-last">
-          <PhotoScene
+          <PortfolioPhoto
+            src="https://images.unsplash.com/photo-1546636889-ba9fdd63583e?w=900&q=80&auto=format&fit=crop"
             seed={4}
             alt="Zabir Khan at an international photography exhibition"
-            className="block h-[480px] w-full"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="h-[480px] w-full"
           />
           <div className="absolute -bottom-6 left-4 max-w-[calc(100%-32px)] border border-ink-border bg-ink-alt px-8 py-6 lg:-left-6">
             <div className="font-display text-[42px] font-black text-gold">10+</div>

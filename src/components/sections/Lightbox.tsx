@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { X } from "lucide-react";
-import PhotoScene from "@/components/ui/PhotoScene";
+import PortfolioPhoto from "@/components/ui/PortfolioPhoto";
 import type { PortfolioItem } from "@/data/portfolio";
 
 interface LightboxProps {
@@ -36,9 +36,11 @@ export default function Lightbox({ item, onClose }: LightboxProps) {
         <X size={28} />
       </button>
       <div className="text-center" onClick={(e) => e.stopPropagation()}>
-        <PhotoScene
+        <PortfolioPhoto
+          src={item.image}
           seed={item.seed}
           alt={item.title}
+          sizes="80vw"
           className="mx-auto h-[min(70vh,500px)] w-[min(80vw,700px)]"
         />
         <div className="mt-5">
